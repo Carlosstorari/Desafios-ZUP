@@ -3,7 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#262626</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="tab_color">#262626</color>
+    <color name="movie_item_color">#262626</color>
     <color name="icon_color">#999999</color>
     <color name="body">#1a1a1a</color>
+    <color name="tap_color">#333333</color>
 </resources>

@@ -1,8 +1,10 @@
-package com.example.treinobottomnavigationview
+package com.example.treinobottomnavigationview.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.treinobottomnavigationview.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> {
                     title = resources.getString(R.string.home)
                     loadFragment(HomeFragment())
+
                     return@setOnNavigationItemSelectedListener true
                 }
 
