@@ -1,4 +1,4 @@
-package com.example.treinobottomnavigationview
+package com.example.desafios_zup
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

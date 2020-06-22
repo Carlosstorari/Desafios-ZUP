@@ -1,4 +1,4 @@
-package com.example.treinobottomnavigationview.view
+package com.example.desafios_zup.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.treinobottomnavigationview.R
+import com.example.desafios_zup.R
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MovieAdapter(private val items: List<Movies>) :
-    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter() : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+
+    private var mMoviesList: List<MoviesModel> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -18,10 +19,10 @@ class MovieAdapter(private val items: List<Movies>) :
         return MovieViewHolder(itemView)
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = mMoviesList.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val currentItem = items[position]
+        val currentItem = mMoviesList[position]
         holder.capa.setImageResource(currentItem.imageResource)
         holder.nome.text = currentItem.nome
         holder.genero.text = currentItem.genero
@@ -35,5 +36,10 @@ class MovieAdapter(private val items: List<Movies>) :
         val genero: TextView = itemView.genero
         val pais: TextView = itemView.pais
         val sinopse: TextView = itemView.sinopse
+    }
+
+    fun updateHome(list: List<MoviesModel>) {
+        mMoviesList = list
+        notifyDataSetChanged()
     }
 }

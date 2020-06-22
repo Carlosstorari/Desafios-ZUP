@@ -1,65 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="380dp"
-    android:layout_height="210dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="400dp"
+    android:layout_height="210dp"
+    android:layout_margin="5dp"
     android:background="@color/movie_item_color"
-    android:padding="4dp"
-    android:layout_margin="4dp">
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/capa"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="200dp"
-        android:src="@mipmap/scott_pilgrim2"
         android:layout_marginTop="2dp"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/scott_pilgrim2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_favorite2"
+        android:tint="#d9d9d9"
+        app:layout_constraintTop_toTopOf="@+id/capa"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nome"
-        android:layout_marginTop="5dp"
-        android:textSize="16sp"
+        android:id="@+id/nota"
+        android:text="9.0"
         android:textColor="#fff"
         android:textStyle="bold"
-        android:text="Scott Pilgrim contra o Mundo"
-        app:layout_constraintLeft_toRightOf="@+id/capa"
-        app:layout_constraintTop_toTopOf="@+id/capa"/>
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:layout_marginLeft="135dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <TextView
+        android:id="@+id/nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Scott Pilgrim contra o Mundo"
+
+        android:layout_marginStart="180dp"
+        android:textColor="#fff"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/capa" />
+
+    <TextView
         android:id="@+id/genero"
-        android:layout_marginTop="5dp"
-        android:textSize="10sp"
-        android:textColor="#fff"
-        android:text="Ação, Romance"
-        app:layout_constraintLeft_toRightOf="@+id/capa"
-        app:layout_constraintTop_toBottomOf="@+id/nome"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/pais"
         android:layout_marginTop="5dp"
-        android:textSize="10sp"
+        android:text="Ação, Romance"
         android:textColor="#fff"
-        android:text="Unated States"
-        app:layout_constraintLeft_toRightOf="@+id/capa"
-        app:layout_constraintTop_toBottomOf="@+id/genero"/>
+        android:textSize="10sp"
+        android:layout_marginStart="180dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome" />
+
     <TextView
+        android:id="@+id/pais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Unated States"
+        android:textColor="#fff"
+        android:textSize="10sp"
+        android:layout_marginStart="180dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genero" />
+
+    <TextView
+        android:id="@+id/sinopse"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/sinopse"
         android:layout_marginTop="5dp"
-        android:textSize="10sp"
-        android:textColor="@color/icon_color"
         android:text="@string/example_sinopse"
-        app:layout_constraintLeft_toRightOf="@+id/capa"
-        app:layout_constraintTop_toBottomOf="@+id/pais"/>
-
-
+        android:textColor="@color/icon_color"
+        android:textSize="8sp"
+        android:layout_marginStart="180dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pais" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

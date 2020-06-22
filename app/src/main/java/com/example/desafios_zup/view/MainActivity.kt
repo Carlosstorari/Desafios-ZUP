@@ -1,10 +1,9 @@
-package com.example.treinobottomnavigationview.view
+package com.example.desafios_zup.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.treinobottomnavigationview.R
+import com.example.desafios_zup.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

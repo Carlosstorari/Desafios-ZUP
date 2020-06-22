@@ -1,4 +1,4 @@
-package com.example.treinobottomnavigationview
+package com.example.desafios_zup
 
 import org.junit.Test
 
