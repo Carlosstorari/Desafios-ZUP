@@ -10,7 +10,18 @@ class HomeViewModel : ViewModel() {
     private val mMoviesList = MutableLiveData<List<MoviesModel>>()
     val moviesList: LiveData<List<MoviesModel>> = mMoviesList
 
-    fun load() {
-        mMoviesList.value = Data().items
+    private val mGenresList = MutableLiveData<List<String>>()
+    val genresList: LiveData<List<String>> = mGenresList
+
+    fun load(str : String) {
+        if(str == "Todos"){
+            mMoviesList.value = Data().items
+        } else {
+            mMoviesList.value = Data().items.filter { it.genero == str  }
+        }
+    }
+
+    fun loadTopics() {
+        mGenresList.value = Data().genresList
     }
 }

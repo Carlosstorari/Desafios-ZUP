@@ -46,4 +46,6 @@ class Data {
                     " Ela tem o maior de todos os problemas: um exército de ex-namorados que não medem esforços para eliminar Scott da lista de interessados."
         )
     )
+
+    val genresList : List<String> = listOf("Todos", "Terror", "Comedia", "Drama", "Ação", "Documentario", "Suspense")
 }

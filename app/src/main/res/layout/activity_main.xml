@@ -16,7 +16,7 @@
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/tap_color"
+        android:background="@color/tab_color"
         app:itemIconSize="40sp"
         app:itemIconTint="@drawable/tab_color"
         app:menu="@menu/bottom_navigation"

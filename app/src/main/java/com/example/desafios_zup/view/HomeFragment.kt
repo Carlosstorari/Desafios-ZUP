@@ -9,38 +9,38 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.desafios_zup.R
+import com.example.desafios_zup.repository.TabMenuOptions
 import com.example.desafios_zup.viewModel.HomeViewModel
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment(){
 
-    private lateinit var homeViewModel: HomeViewModel
-    private val mAdapter: MovieAdapter = MovieAdapter()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        //homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
+        val rootView = inflater.inflate(R.layout.main_home_fragment, container, false)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        val repository = TabMenuOptions().items
 
-        val rootView = inflater.inflate(R.layout.fragment_home,container,false)
+        val pager = rootView.findViewById(R.id.pager) as ViewPager2
+        val tabs = rootView.findViewById(R.id.tabs) as TabLayout
 
-        val recycler_view = rootView.findViewById(R.id.recycle_view_movie) as RecyclerView
+        pager.adapter = ViewPagerFragmentAdapter(requireActivity())
 
+//        observer()
+//        homeViewModel.loadTopics()
 
-        recycler_view.adapter = mAdapter
-        // pega o contexto de activity
-        recycler_view.layoutManager = LinearLayoutManager(context)
-
-        recycler_view.setHasFixedSize(true)
-
-        observer()
-        homeViewModel.load()
+        TabLayoutMediator(tabs, pager) { tab, position ->
+            tab.text = repository[position]
+        }.attach()
 
         return rootView
-    }
-
-    private fun observer() {
-        homeViewModel.moviesList.observe(viewLifecycleOwner, Observer {
-            mAdapter.updateHome(it)
-        })
     }
 }
