@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.desafios_zup.R
+import com.example.desafios_zup.view.favorite.FavoriteFragment
+import com.example.desafios_zup.view.home.HomeFragment
+import com.example.desafios_zup.view.search.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

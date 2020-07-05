@@ -1,4 +1,4 @@
-package com.example.desafios_zup.view
+package com.example.desafios_zup.view.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,14 +15,15 @@ import com.example.desafios_zup.viewModel.HomeViewModel
 class HomeMovieGenresFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private val mAdapter: MovieAdapter = MovieAdapter()
+    private val mAdapter: MovieAdapter =
+        MovieAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+            homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         val movieGenre = arguments?.getString("text") ?: ""
         val rootView = inflater.inflate(R.layout.fragment_home,container,false)

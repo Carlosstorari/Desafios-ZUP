@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">treinoBottomNavigationView</string>
+    <string name="app_name">Desafio-ZUP</string>
     <string name="search">Search</string>
     <string name="home">Home</string>
     <string name="favorites">Favorites</string>
     <string name="example_sinopse">Guitarrista de uma banda de rock do colégio, o jovem Scott Pilgrim nunca teve problemas para conseguir namorada. O problema sempre foi se livrar delas. Mas com Ramona Flowers é diferente, pois ele se apaixona perdidamente por ela e não será nada fácil conquistar seu amor. Ela tem o maior de todos os problemas: um exército de ex-namorados que não medem esforços para eliminar Scott da lista de interessados.</string>
+    <string name="search_hint">Pesquisar</string>
 </resources>

@@ -1,9 +1,10 @@
-package com.example.desafios_zup.view
+package com.example.desafios_zup.view.home
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.desafios_zup.repository.TabMenuOptions
+import com.example.desafios_zup.view.home.HomeMovieGenresFragment
 
 class ViewPagerFragmentAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         val repository = TabMenuOptions().items
