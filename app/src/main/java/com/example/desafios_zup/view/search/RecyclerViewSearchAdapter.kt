@@ -30,9 +30,6 @@ class RecyclerViewSearchAdapter() :
         val sinopse: TextView = itemView.sinopse
     }
 
-//    init {
-//        moviesFilterList = movieList
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
         val moviesListView = LayoutInflater.from(parent.context)
@@ -55,25 +52,31 @@ class RecyclerViewSearchAdapter() :
         holder.sinopse.text = currentItem.sinopse
     }
 
+    fun filterList(charFilter : String): List<MoviesModel> {
+        val resultList = ArrayList<MoviesModel>()
+        for (row in moviesFilterList) {
+            if (row.nome.toLowerCase(Locale.ROOT)
+                    .contains(charFilter.toLowerCase(Locale.ROOT))
+            ) {
+                resultList.add(row)
+            }
+        }
+        return resultList
+    }
+
 
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
-                if (charSearch.isEmpty()) {
-                } else {
-                    val resultList = ArrayList<MoviesModel>()
-                    for (row in moviesFilterList) {
-                        if (row.nome.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))) {
-                            resultList.add(row)
-                        }
-                    }
-                    moviesFilterList = resultList
+                if (charSearch.isNotEmpty()) {
+                    moviesFilterList = filterList(charSearch)
                 }
-                    val filterResults = FilterResults()
+                val filterResults = FilterResults()
                 filterResults.values = moviesFilterList
                 return filterResults
             }
+
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 moviesFilterList = results?.values as List<MoviesModel>

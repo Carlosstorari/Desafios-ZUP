@@ -23,10 +23,10 @@ class HomeMovieGenresFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-            homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         val movieGenre = arguments?.getString("text") ?: ""
-        val rootView = inflater.inflate(R.layout.fragment_home,container,false)
+        val rootView = inflater.inflate(R.layout.fragment_home, container, false)
         val recycler_view = rootView.findViewById(R.id.recycle_view_movie) as RecyclerView
 
 

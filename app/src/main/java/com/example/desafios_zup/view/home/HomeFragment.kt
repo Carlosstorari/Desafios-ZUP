@@ -32,8 +32,6 @@ class HomeFragment : Fragment(){
                 requireActivity()
             )
 
-//        observer( )
-//        homeViewModel.loadTopics()
 
         TabLayoutMediator(tabs, pager) { tab, position ->
             tab.text = repository[position]

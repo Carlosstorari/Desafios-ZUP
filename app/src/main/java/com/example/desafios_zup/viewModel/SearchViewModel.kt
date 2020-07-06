@@ -9,8 +9,6 @@ import com.example.desafios_zup.view.MoviesModel
 class SearchViewModel : ViewModel() {
     private val mMoviesList = MutableLiveData<List<MoviesModel>>()
     val moviesList: LiveData<List<MoviesModel>> = mMoviesList
-
-
     fun loadSearchView() {
         mMoviesList.value = Data().items
     }
