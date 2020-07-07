@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafios_zup.R
 import com.example.desafios_zup.viewModel.SearchViewModel
+import kotlinx.android.synthetic.main.fragment_search.*
 
 class SearchFragment : Fragment() {
     private lateinit var searchViewModel: SearchViewModel
@@ -28,14 +29,21 @@ class SearchFragment : Fragment() {
     ): View? {
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
         var rootView = setup(inflater.inflate(R.layout.fragment_search, container, false))
-        recyclerViewMovies = rootView.findViewById(R.id.recycler_view_movie) as RecyclerView
-        recyclerViewMovies.layoutManager = LinearLayoutManager(context)
-        recyclerViewMovies.setHasFixedSize(true)
+
         val movie_search =
             rootView.findViewById(R.id.search_view_movies) as androidx.appcompat.widget.SearchView
         movie_search.setOnQueryTextListener(movieSearch())
-        recyclerViewMovies.adapter = mAdapter
+
         return rootView
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        recyclerViewMovies = recycler_view_movie
+        recyclerViewMovies.layoutManager = LinearLayoutManager(context)
+        recyclerViewMovies.setHasFixedSize(true)
+
+        recyclerViewMovies.adapter = mAdapter
     }
 
     private fun setup(view: View): View {

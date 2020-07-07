@@ -18,25 +18,17 @@ class HomeFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
         val rootView = inflater.inflate(R.layout.main_home_fragment, container, false)
-
         val repository = TabMenuOptions().items
-
         val pager = rootView.findViewById(R.id.pager) as ViewPager2
         val tabs = rootView.findViewById(R.id.tabs) as TabLayout
-
         pager.adapter =
             ViewPagerFragmentAdapter(
                 requireActivity()
             )
-
-
         TabLayoutMediator(tabs, pager) { tab, position ->
             tab.text = repository[position]
         }.attach()
-
         return rootView
     }
 }
