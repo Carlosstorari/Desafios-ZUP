@@ -55,7 +55,6 @@ class SearchFragment : Fragment() {
         textView.setTextColor(Color.WHITE)
         return view
     }
-
     private fun movieSearch(): androidx.appcompat.widget.SearchView.OnQueryTextListener {
         return object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
