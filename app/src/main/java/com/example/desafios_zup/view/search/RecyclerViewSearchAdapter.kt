@@ -52,12 +52,16 @@ class RecyclerViewSearchAdapter() :
         holder.sinopse.text = currentItem.sinopse
     }
 
-    fun filterList(charFilter : String): List<MoviesModel> {
+    private fun containsCharFilter(row: MoviesModel, charFilter: String): Boolean {
+        return row.nome.toLowerCase(Locale.ROOT)
+            .contains(charFilter.toLowerCase(Locale.ROOT))
+    }
+
+    fun filterList(charFilter: String): List<MoviesModel> {
         val resultList = ArrayList<MoviesModel>()
         for (row in moviesFilterList) {
-            if (row.nome.toLowerCase(Locale.ROOT)
-                    .contains(charFilter.toLowerCase(Locale.ROOT))
-            ) {
+
+            if (containsCharFilter(row, charFilter)) {
                 resultList.add(row)
             }
         }

@@ -28,49 +28,48 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
-        var rootView = setup(inflater.inflate(R.layout.fragment_search, container, false))
-
-        val movie_search =
-            rootView.findViewById(R.id.search_view_movies) as androidx.appcompat.widget.SearchView
-        movie_search.setOnQueryTextListener(movieSearch())
-
+        val rootView = inflater.inflate(R.layout.fragment_search, container, false)
         return rootView
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        setupSearchView(search_view_movies)
         recyclerViewMovies = recycler_view_movie
         recyclerViewMovies.layoutManager = LinearLayoutManager(context)
         recyclerViewMovies.setHasFixedSize(true)
-
         recyclerViewMovies.adapter = mAdapter
     }
 
-    private fun setup(view: View): View {
+    private fun setupSearchView(view: View): View {
         val searchIcon = view.findViewById(R.id.search_mag_icon) as ImageView
         searchIcon.setColorFilter(Color.WHITE)
         val cancelIcon = view.findViewById(R.id.search_close_btn) as ImageView
         cancelIcon.setColorFilter(Color.WHITE)
         val textView = view.findViewById(R.id.search_src_text) as TextView
         textView.setTextColor(Color.WHITE)
+        val movie_search =
+            view.findViewById(R.id.search_view_movies) as androidx.appcompat.widget.SearchView
+        movie_search.setOnQueryTextListener(movieSearch())
         return view
     }
+
     private fun movieSearch(): androidx.appcompat.widget.SearchView.OnQueryTextListener {
         return object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
+
             override fun onQueryTextChange(newText: String?): Boolean {
                 observer()
                 searchViewModel.loadSearchView()
                 mAdapter.filter.filter(newText)
-                if (newText != null) {
-                    if (newText.isNotEmpty()) {
-                        recyclerViewMovies.visibility = View.VISIBLE
-                    } else {
-                        recyclerViewMovies.visibility = View.GONE
-                    }
+                val isTextValid = newText != null && newText.isNotEmpty()
+                if (isTextValid) {
+                    recyclerViewMovies.visibility = View.VISIBLE
+                } else {
+                    recyclerViewMovies.visibility = View.GONE
                 }
                 return false
             }
