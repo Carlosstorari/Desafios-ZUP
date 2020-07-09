@@ -7,4 +7,5 @@
     <color name="icon_color">#999999</color>
     <color name="body">#1a1a1a</color>
     <color name="tab_color">#333333</color>
+    <color name="white">#fff</color>
 </resources>

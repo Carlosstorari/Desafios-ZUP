@@ -20,7 +20,8 @@
         app:itemIconSize="40sp"
         app:itemIconTint="@drawable/tab_color"
         app:menu="@menu/bottom_navigation"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
     <!--?android:attr/windowBackground-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
